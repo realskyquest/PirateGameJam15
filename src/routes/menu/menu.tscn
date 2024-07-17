@@ -1,0 +1,114 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwkx05h3wt3ca"]
+
+[ext_resource type="FontFile" uid="uid://deqmxxslysugs" path="res://assets/fonts/Kenney Future Narrow.ttf" id="1_a4ffs"]
+[ext_resource type="Script" path="res://src/routes/menu/menu.gd" id="1_aup71"]
+[ext_resource type="Theme" uid="uid://cos34byytkewr" path="res://assets/themes/main.tres" id="2_r5atf"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_aup71")
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.152941, 0.152941, 0.211765, 1)
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 171.0
+offset_top = 32.0
+offset_right = 854.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_a4ffs")
+theme_override_font_sizes/font_size = 64
+text = "Pirate Game Jam 15"
+
+[node name="PlayButton" type="Button" parent="UI"]
+offset_left = 64.0
+offset_top = 192.0
+offset_right = 184.0
+offset_bottom = 240.0
+focus_neighbor_bottom = NodePath("../SettingsButton")
+focus_next = NodePath("../SettingsButton")
+focus_previous = NodePath("../SettingsButton")
+theme = ExtResource("2_r5atf")
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="UI"]
+offset_left = 64.0
+offset_top = 270.0
+offset_right = 248.0
+offset_bottom = 318.0
+focus_neighbor_top = NodePath("../PlayButton")
+focus_neighbor_bottom = NodePath("../CreditsButton")
+focus_next = NodePath("../CreditsButton")
+focus_previous = NodePath("../PlayButton")
+theme = ExtResource("2_r5atf")
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="UI"]
+offset_left = 64.0
+offset_top = 348.0
+offset_right = 224.0
+offset_bottom = 396.0
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_next = NodePath("../PlayButton")
+focus_previous = NodePath("../SettingsButton")
+theme = ExtResource("2_r5atf")
+text = "Credits"
+
+[node name="SettingsUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Title" type="Label" parent="SettingsUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_a4ffs")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+
+[node name="ReturnUIButton" type="Button" parent="SettingsUI"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme = ExtResource("2_r5atf")
+text = "Return"
+
+[node name="CreditsUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Title" type="Label" parent="CreditsUI"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_top = 32.0
+offset_right = 139.0
+offset_bottom = 104.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_a4ffs")
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+
+[node name="ReturnUIButton" type="Button" parent="CreditsUI"]
+offset_right = 140.0
+offset_bottom = 48.0
+theme = ExtResource("2_r5atf")
+text = "Return"
+
+[connection signal="pressed" from="UI/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="UI/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="UI/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="SettingsUI/ReturnUIButton" to="." method="_on_return_ui_button_pressed"]
+[connection signal="pressed" from="CreditsUI/ReturnUIButton" to="." method="_on_return_ui_button_pressed"]
