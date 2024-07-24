@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dj7l7wjuq3qk2"]
+[gd_scene load_steps=3 format=3 uid="uid://dj7l7wjuq3qk2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_xskd0"]
+[ext_resource type="PackedScene" uid="uid://drhu4jck020i" path="res://src/components/loading_screen/loading_screen.tscn" id="2_a055d"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xskd0")
+
+[node name="LoadingScreen" parent="." instance=ExtResource("2_a055d")]
+visible = false
+top_level = true
+
+[connection signal="timeout" from="LoadingScreen/LoadingScreenTimer" to="." method="_on_loading_screen_timer_timeout"]
+
+[editable path="LoadingScreen"]
