@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx30xv3uyi00g"]
+[gd_scene load_steps=14 format=3 uid="uid://dx30xv3uyi00g"]
 
 [ext_resource type="Texture2D" uid="uid://ch2hlk1unni7b" path="res://assets/images/player/player-Sheet.png" id="1_7bkxr"]
 [ext_resource type="Script" path="res://src/models/characters/player/player.gd" id="1_feb3b"]
+[ext_resource type="Texture2D" uid="uid://cv528c6jc3l51" path="res://assets/images/2d_lights_and_shadows_neutral_point_light.webp" id="3_x0uf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hi7xg"]
 atlas = ExtResource("1_7bkxr")
@@ -72,8 +73,9 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q2sy5"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5p8af"]
 radius = 8.0
+height = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -86,5 +88,12 @@ autoplay = "Idle"
 frame_progress = 0.784509
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("CircleShape2D_q2sy5")
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_5p8af")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 4)
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("3_x0uf2")
+texture_scale = 0.5

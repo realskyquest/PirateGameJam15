@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckcml7xh0hgn1"]
+[gd_scene load_steps=10 format=3 uid="uid://ckcml7xh0hgn1"]
 
 [ext_resource type="Script" path="res://src/models/characters/enemies/enemy.gd" id="1_bu3db"]
-[ext_resource type="Texture2D" uid="uid://c3hywkueaw0jm" path="res://assets/images/enemies/enemy1-Sheet.png" id="2_y55wi"]
+[ext_resource type="Texture2D" uid="uid://c3hywkueaw0jm" path="res://assets/images/enemy/enemy1-Sheet.png" id="2_y55wi"]
 [ext_resource type="PackedScene" uid="uid://d12ayjq61qdvy" path="res://src/components/player_area_detection/player_detection_zone.tscn" id="3_0c40r"]
-[ext_resource type="Texture2D" uid="uid://cv528c6jc3l51" path="res://assets/images/2d_lights_and_shadows_neutral_point_light.webp" id="4_sv77a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8jcc"]
 atlas = ExtResource("2_y55wi")
@@ -40,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h4keb"]
-radius = 16.0
+radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_63l6n"]
 radius = 192.167
@@ -55,23 +54,20 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_h4keb")
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("3_0c40r")]
+visible = false
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 shape = SubResource("CircleShape2D_63l6n")
 debug_color = Color(0, 0.6, 0.701961, 0.0392157)
 
 [node name="EnemyRayCast2D" type="RayCast2D" parent="."]
+visible = false
 self_modulate = Color(0, 1, 0, 1)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(0, 8)
-scale = Vector2(1.09783, 0.970016)
-shadow_enabled = true
-texture = ExtResource("4_sv77a")
 
 [node name="Navigation" type="Node2D" parent="."]
 
