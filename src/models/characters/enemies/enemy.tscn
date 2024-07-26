@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckcml7xh0hgn1"]
+[gd_scene load_steps=11 format=3 uid="uid://ckcml7xh0hgn1"]
 
 [ext_resource type="Script" path="res://src/models/characters/enemies/enemy.gd" id="1_bu3db"]
 [ext_resource type="Texture2D" uid="uid://c3hywkueaw0jm" path="res://assets/images/enemy/enemy1-Sheet.png" id="2_y55wi"]
 [ext_resource type="PackedScene" uid="uid://d12ayjq61qdvy" path="res://src/components/player_area_detection/player_detection_zone.tscn" id="3_0c40r"]
+[ext_resource type="Texture2D" uid="uid://cv528c6jc3l51" path="res://assets/images/2d_lights_and_shadows_neutral_point_light.webp" id="4_70rib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e8jcc"]
 atlas = ExtResource("2_y55wi")
@@ -77,6 +78,11 @@ debug_enabled = true
 [node name="UpdateNavigationTimer" type="Timer" parent="Navigation"]
 wait_time = 0.1
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("4_70rib")
 
 [connection signal="timeout" from="Navigation/UpdateNavigationTimer" to="." method="_on_update_navigation_timer_timeout"]
 

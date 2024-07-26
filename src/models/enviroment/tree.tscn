@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxbs68pg8xipi"]
+
+[ext_resource type="Script" path="res://src/models/enviroment/tree.gd" id="1_pp3gf"]
+
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_pp3gf")

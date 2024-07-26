@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://csg3m088dqqwx"]
+
+[ext_resource type="Texture2D" uid="uid://be6ysat4dnbv8" path="res://assets/images/tree-Sheet.png" id="1_oovbp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hap81"]
+atlas = ExtResource("1_oovbp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pqqqs"]
+atlas = ExtResource("1_oovbp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op31e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hap81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pqqqs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_walvk"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fj74n"]
+blend_mode = 1
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0wqbh"]
+polygon = PackedVector2Array(-1, 14, 1, 14, 1, 13, 2, 13, 2, 12, 3, 12, 3, 10, 4, 10, 4, 9, 5, 9, 5, 8, 6, 8, 6, 7, 7, 7, 7, 6, 8, 6, 8, 4, 9, 4, 9, 0, 8, 0, 8, -5, 7, -5, 7, -8, 6, -8, 6, -9, 5, -9, 5, -11, 4, -11, 4, -12, 3, -12, 3, -13, -3, -13, -3, -12, -4, -12, -4, -11, -5, -11, -5, -9, -6, -9, -6, -8, -7, -8, -7, -5, -8, -5, -8, 0, -9, 0, -9, 4, -8, 4, -8, 6, -7, 6, -7, 7, -6, 7, -6, 8, -5, 8, -5, 9, -4, 9, -4, 10, -3, 10, -3, 12, -2, 12, -2, 13, -1, 13)
+
+[node name="Oak" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_op31e")
+frame = 1
+frame_progress = 0.13215
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_walvk")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+material = SubResource("CanvasItemMaterial_fj74n")
+occluder = SubResource("OccluderPolygon2D_0wqbh")
