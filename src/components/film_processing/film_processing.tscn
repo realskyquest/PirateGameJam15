@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://bi8d068ynmf76"]
+
+[ext_resource type="Script" path="res://src/components/film_processing/film_processing.gd" id="1_v500b"]
+[ext_resource type="Texture2D" uid="uid://covhmi3k1q13o" path="res://assets/images/film/beaker.png" id="2_5y20f"]
+[ext_resource type="Theme" uid="uid://cos34byytkewr" path="res://assets/themes/main.tres" id="2_r2l37"]
+[ext_resource type="Shader" path="res://src/components/film_processing/film_processing.gdshader" id="3_r3vyc"]
+[ext_resource type="Texture2D" uid="uid://nae80xk2oygj" path="res://icon.svg" id="4_joo08"]
+[ext_resource type="FontFile" uid="uid://deqmxxslysugs" path="res://assets/fonts/Kenney Future Narrow.ttf" id="6_c3u5c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xxugl"]
+shader = ExtResource("3_r3vyc")
+shader_parameter/crt_curve = 1.0
+shader_parameter/crt_scan_line_color = 0.347
+shader_parameter/aperture_grille_rate = 0.4
+shader_parameter/rf_switch_esque_blur = 0.0
+shader_parameter/white_noise_rate = 1.0
+
+[node name="FilmProcessing" type="Node2D"]
+script = ExtResource("1_v500b")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1024.0
+offset_bottom = 600.0
+color = Color(0.152941, 0.152941, 0.211765, 1)
+
+[node name="BeakerSprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 352)
+scale = Vector2(5, 3.5)
+texture = ExtResource("2_5y20f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(512, 352)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_joo08")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xxugl")
+offset_left = 216.0
+offset_top = 160.0
+offset_right = 792.0
+offset_bottom = 560.0
+metadata/_edit_lock_ = true
+
+[node name="DeveloperButton" type="Button" parent="."]
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 256.0
+offset_bottom = 128.0
+theme = ExtResource("2_r2l37")
+text = "Develop"
+
+[node name="StopBathButton" type="Button" parent="."]
+offset_left = 384.0
+offset_top = 64.0
+offset_right = 640.0
+offset_bottom = 128.0
+theme = ExtResource("2_r2l37")
+text = "Stop Bath"
+
+[node name="FixerButton" type="Button" parent="."]
+offset_left = 768.0
+offset_top = 64.0
+offset_right = 960.0
+offset_bottom = 128.0
+theme = ExtResource("2_r2l37")
+text = "Fixer"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 164.0
+offset_right = 180.0
+offset_bottom = 303.0
+theme_override_fonts/font = ExtResource("6_c3u5c")
+theme_override_font_sizes/font_size = 64
+text = "0/0"
+
+[connection signal="pressed" from="DeveloperButton" to="." method="_on_developer_button_pressed"]
+[connection signal="pressed" from="StopBathButton" to="." method="_on_stop_bath_button_pressed"]
+[connection signal="pressed" from="FixerButton" to="." method="_on_fixer_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

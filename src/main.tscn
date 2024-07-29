@@ -1,15 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj7l7wjuq3qk2"]
+[gd_scene load_steps=5 format=3 uid="uid://dj7l7wjuq3qk2"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_xskd0"]
+[ext_resource type="Theme" uid="uid://cos34byytkewr" path="res://assets/themes/main.tres" id="2_78ewq"]
 [ext_resource type="PackedScene" uid="uid://drhu4jck020i" path="res://src/components/loading_screen/loading_screen.tscn" id="2_a055d"]
+[ext_resource type="FontFile" uid="uid://deqmxxslysugs" path="res://assets/fonts/Kenney Future Narrow.ttf" id="3_5h0hr"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xskd0")
 
+[node name="GameUI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Button" type="Button" parent="GameUI"]
+offset_right = 192.0
+offset_bottom = 64.0
+theme = ExtResource("2_78ewq")
+text = "FINISH"
+
+[node name="Label" type="Label" parent="GameUI"]
+offset_left = 208.0
+offset_top = 16.0
+offset_right = 1040.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("3_5h0hr")
+theme_override_font_sizes/font_size = 32
+text = "[] AREA"
+
 [node name="LoadingScreen" parent="." instance=ExtResource("2_a055d")]
 visible = false
-top_level = true
 
-[connection signal="timeout" from="LoadingScreen/LoadingScreenTimer" to="." method="_on_loading_screen_timer_timeout"]
+[node name="HideLoadingScreenTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="pressed" from="GameUI/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="HideLoadingScreenTimer" to="." method="_on_hide_loading_screen_timer_timeout"]
 
 [editable path="LoadingScreen"]

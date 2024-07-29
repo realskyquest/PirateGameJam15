@@ -38,8 +38,7 @@ polygon = PackedVector2Array(-1, 14, 1, 14, 1, 13, 2, 13, 2, 12, 3, 12, 3, 10, 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_op31e")
-frame = 1
-frame_progress = 0.13215
+frame_progress = 0.5825
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_walvk")

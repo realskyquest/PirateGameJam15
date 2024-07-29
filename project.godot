@@ -15,6 +15,11 @@ run/main_scene="res://src/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globals="*res://src/globals.gd"
+SoundManager="*res://addons/sound_manager/sound_manager.gd"
+
 [display]
 
 window/size/viewport_width=1024
@@ -23,7 +28,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gaea/plugin.cfg")
+enabled=PackedStringArray("res://addons/gaea/plugin.cfg", "res://addons/sound_manager/plugin.cfg")
 
 [input]
 
@@ -57,6 +62,7 @@ down={
 2d_physics/layer_1="Env"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Evidence"
 
 [rendering]
 

@@ -1,38 +1,80 @@
-[gd_scene load_steps=7 format=3 uid="uid://drhu4jck020i"]
+[gd_scene load_steps=13 format=3 uid="uid://drhu4jck020i"]
 
 [ext_resource type="Texture2D" uid="uid://oqyqjni47nvi" path="res://assets/images/loading_screen-Sheet.png" id="2_132oh"]
 [ext_resource type="FontFile" uid="uid://deqmxxslysugs" path="res://assets/fonts/Kenney Future Narrow.ttf" id="3_wssf2"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_36bih"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p03oa"]
+atlas = ExtResource("2_132oh")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ugb4"]
 atlas = ExtResource("2_132oh")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_35683"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiwap"]
 atlas = ExtResource("2_132oh")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_43uwf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0sdh"]
 atlas = ExtResource("2_132oh")
 region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wojx7"]
+atlas = ExtResource("2_132oh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c38y7"]
+atlas = ExtResource("2_132oh")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mp2c"]
+atlas = ExtResource("2_132oh")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5c2mo"]
+atlas = ExtResource("2_132oh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fogpe"]
+atlas = ExtResource("2_132oh")
+region = Rect2(1024, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aric0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_36bih")
+"texture": SubResource("AtlasTexture_p03oa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_35683")
+"texture": SubResource("AtlasTexture_8ugb4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_43uwf")
+"texture": SubResource("AtlasTexture_iiwap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0sdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wojx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c38y7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mp2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5c2mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fogpe")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
-[node name="LoadingScreen" type="Node2D"]
+[node name="LoadingScreen" type="CanvasLayer"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1024.0
@@ -44,7 +86,7 @@ position = Vector2(512, 300)
 scale = Vector2(4.625, 4.6875)
 sprite_frames = SubResource("SpriteFrames_aric0")
 autoplay = "default"
-frame_progress = 0.709703
+frame_progress = 0.928712
 
 [node name="Title" type="Label" parent="."]
 offset_left = 384.0
@@ -56,6 +98,3 @@ theme_override_fonts/font = ExtResource("3_wssf2")
 theme_override_font_sizes/font_size = 64
 text = "SOCIETY
   WATCH"
-
-[node name="LoadingScreenTimer" type="Timer" parent="."]
-one_shot = true
