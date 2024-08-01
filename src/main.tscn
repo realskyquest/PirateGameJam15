@@ -24,7 +24,7 @@ offset_right = 1040.0
 offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("3_5h0hr")
 theme_override_font_sizes/font_size = 32
-text = "[] AREA"
+text = "SHADOW GOVERMENT AREA"
 
 [node name="LoadingScreen" parent="." instance=ExtResource("2_a055d")]
 visible = false

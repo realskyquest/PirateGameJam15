@@ -29,11 +29,11 @@ func _ready():
 
 func _process(_delta):
 	if Globals.missionType == 0:
-		label.text = ""
+		label.text = "SHADOW GOVERMENT AREA"
 	elif Globals.missionType == 1:
-		label.text = ""
+		label.text = "UNKOWN CULT! AREA"
 	elif Globals.missionType == 2:
-		label.text = ""
+		label.text = "ANOMALY??? AREA"
 		
 	
 
